@@ -1,0 +1,8 @@
+<h1>Students list</h1>
+<ol class="student_list">
+  <% @students.each do |student| %>
+  <li><a class="student_name" href="students/<%= student.id %>"><%= student.name %></a><span class="student_email"><%= student.email %><span></li>
+  <% end %>
+</ol>
+
+<a href="/courses">Go to courses</a>
