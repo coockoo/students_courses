@@ -7,4 +7,16 @@
   <% end %>
 </ol>
 
+<h3>Enroll to coursses: </h3>
+<%= form_for (@student) do |f| %>
+  <% @courses.each do |c|  %>
+    <div>
+      <a href="/courses/<%= c.id %>"><%= c.title %></a> <%= check_box "selected_courses", c.id %>
+    </div>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
+
+
 <a href="/students">Back to students</a>

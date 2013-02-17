@@ -1,0 +1,15 @@
+<h1>Create new course</h1>
+
+<%= form_for (@course) do |f|%>
+<div>
+  <%= label_tag "Give title: " %>
+  <br/>
+  <%= f.text_field :title %>
+</div>
+<div>
+  <%= label_tag "Give description: " %>
+  <br/>
+  <%= f.text_field :descr %>
+</div>
+  <%= f.submit %>
+<% end %>

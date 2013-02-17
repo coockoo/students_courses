@@ -1,0 +1,9 @@
+<h1>Create new user</h1>
+
+<%= form_for (@student) do |f|%>
+  <%= label_tag "Give name: " %>
+  <%= f.text_field :name %>
+  <%= label_tag "Give email: " %>
+  <%= f.text_field :email %>
+  <%= f.submit %>
+<% end %>
