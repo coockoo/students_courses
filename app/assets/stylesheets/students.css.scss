@@ -1,21 +1,56 @@
 .student_list {
-  border: 1px solid rgb(56,56,56);
+  border: 3px solid rgb(108,108,108);
   outline: none;
   width: 20em;
+  background: url("old_mathematics.png");
+  border-radius: 0.7em;
 }
+
 .student_list > li {
-  outline: none;
+  border-bottom: 1px solid rgba(0,0,0,0.8);
+  border-top: 1px solid rgba(255,255,255,0.8);
 }
+
 .student_name {
   padding: 0.5em;
   display: block;
-  width: 100%;
+  width: 19em;
+  color: rgb(15,56,180);
+}
+
+.student_list > li:last-child {
+  border-bottom: none;
 }
 
 .student_name:hover {
-  background: gray;
-}
-.student_email {
-  display: block;
+  background: rgba(210,210,210,0.2);
 }
 
+.student_email {
+  display: block;
+  padding: 0.5em;
+  width: 19em;
+  color: rgb(109,85,12);
+}
+
+.back {
+  width: 8em;
+  height: 2em;
+  line-height: 2em;
+  padding: 0.3em;
+  background: rgb(45,96,240);
+  color: rgb(250,210,99);
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+/*.back:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+
+  border-right: 1em solid rgb(45,96,240);
+  padding-left: 0.3em;
+}*/
