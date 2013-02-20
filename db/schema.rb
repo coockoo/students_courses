@@ -13,11 +13,12 @@
 
 ActiveRecord::Schema.define(:version => 20130208020900) do
 
-  create_table "courses", :force => true do |t|
+  create_table "courses", :id => false, :force => true do |t|
+    t.string   "uuid",       :limit => 36
     t.string   "title"
     t.string   "descr"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "courses_students", :force => true do |t|
@@ -25,11 +26,12 @@ ActiveRecord::Schema.define(:version => 20130208020900) do
     t.integer "course_id"
   end
 
-  create_table "students", :force => true do |t|
+  create_table "students", :id => false, :force => true do |t|
+    t.string   "uuid",       :limit => 36
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
 end
