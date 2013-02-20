@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
 
   # /students/1 GET
   def show
-    @student = Student.find_by_id(params[:id])
+    @student = Student.find_by_uuid(params[:id])
     @courses = Course.all - @student.courses
   end
 
@@ -28,26 +28,20 @@ class StudentsController < ApplicationController
 
   # /students/1 PUT
   def update
-    @student = Student.find_by_id(params[:id])
-    @selected = params[:selected_courses]
-    logger.info @selected
-    @selected.each { |key, value|
-      puts key
-      puts value
-      if value == "1"
-        puts "Enrolled"
-        @student.courses << Course.find_by_id(key) 
+    @student = Student.find_by_uuid(params[:id])
+    selected = params[:selected_courses] 
+    selected.each { |key, value|
+      if value.to_i == 1
+        @student.courses << Course.find_by_uuid(key)
       end
     }
     respond_to do |format|
       if @student.save 
-        format.html { render text: "succesfully enrolled!" }
+        format.html { redirect_to :action => "show" }
       else 
-        format.html { render text: "error occured!" }
+        format.html { render text: "Trouble!" }
       end
     end
-
-
   end
 
   # /students/1 DELETE

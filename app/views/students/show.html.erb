@@ -3,11 +3,10 @@
 
 <ol>
   <% @student.courses.each do |course| %>
-    <li><a class ="course_name" href="../courses/<%= course.id %>"><%= course.title %></a></li>
+    <li><a class ="course_name" href="/courses/<%= course.id %>"><%= course.title %></a></li>
   <% end %>
 </ol>
 
-<h3>Enroll to coursses: </h3>
 <%= form_for (@student) do |f| %>
   <% @courses.each do |c|  %>
     <div>
@@ -17,6 +16,5 @@
 
   <%= f.submit %>
 <% end %>
-
 
 <a href="/students">Back to students</a>

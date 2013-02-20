@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = course.new(params[:course])
+    @course = Course.new(params[:course])
     respond_to do |format|
       if @course.save 
         format.html { render text: "succesfully created!" }
@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find_by_id(params[:id])  
+    @course = Course.find_by_uuid(params[:id])  
   end
 
   def new
