@@ -1,19 +1,27 @@
 class StudentsController < ApplicationController
-  
-  # /students GET
+
+# /students GET
   def index
     @students = Student.all
   end
 
   # /students POST
   def create
-    @student = Student.create(params[:student])
-    render text: "#{@student.id}: #{@student.name}: #{@student.email} created"
+    @student = Student.new(params[:student])
+    respond_to do |format|
+      if @student.save
+        format.html { render text: "#{@student.id}: #{@student.name}: #{@student.email} created" } 
+      else
+        format.html { render text: "Something wrong! #{@student.errors.first}" }
+      end
+    end
   end
 
   # /students/1 GET
   def show
-    @student = Student.find_by_uuid(params[:id])
+    unless @student = Student.find_by_uuid(params[:id])
+      render text: "Page not found", status: 404
+    end
     @courses = Course.all - @student.courses
   end
 
