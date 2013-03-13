@@ -1,12 +1,22 @@
 <h1>Students list</h1>
-<ol class="student_list">
-  <% @students.each do |student| %>
-  <li><a class="student_name" href="students/<%= student.id %>"><%= student.name %></a><span class="student_email"><%= student.email %></span></li>
-  <% end %>
-</ol>
+<div class="student_list_container">
+  <ol class="student_list">
+    <% @students.each do |student| %>
+      <li><%= link_to student.name, student_path(student), :class => "student_name" %><span class="student_email"><%= student.email %></span></li>
+    <% end %>
+  </ol>
+  <div id="navigation">
+    <button id="prev" data-dir="prev">Previous</button>
+    <button id="next" data-dir="next">Next</button>
+  </div>
+  
+  
+</div>
 
 <div>
-<a href="/students/new" class="back">Create new student</a>
+  <%= link_to "Create new student", { :controller => "students", :action => "new" }, :class => "back" %>
 </div>
-<a href="/courses" class="back">Go to courses</a>
 
+<div>
+<%= link_to "To courses", courses_path, :class => "back" %>
+</div>
