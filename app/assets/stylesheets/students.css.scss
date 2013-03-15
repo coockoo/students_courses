@@ -1,61 +1,126 @@
-.student_list {
-  border: 3px solid rgb(108,108,108);
-  outline: none;
-  width: 20em;
-  background: url("old_mathematics.png");
-  border-radius: 0.7em;
+* { margin: 0; padding: 0; }
+
+#student-list-container {
+  width: 600px;
+  margin: 50px auto 50px;
+  border: 2px solid rgb(200,200,200);
+  border-top: 0px;
+  box-shadow: 0px 5px 15px rgb(230,230,230);
+  background: rgb(240,240,240);
+  border-radius: 0px 0px 1em 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
-.student_list > li {
-  border-bottom: 1px solid rgba(0,0,0,0.8);
-  border-top: 1px solid rgba(255,255,255,0.8);
+#student-list-header {
+  text-align: center;
+  color: rgb(255,255,255);
+  text-shadow: 1px 1px 2px rgb(25,25,25);
 }
 
-.student_name {
-  padding: 0.5em;
+#student-list {
+  margin: 50px 0px 0px;  
+  width: 300px;
+  position: relative;
+}
+
+.student-list-item {
+  padding-left: 3em;
+  list-style: none;
+}
+
+.student-list-name {
   display: block;
-  width: 19em;
-  color: rgb(15,56,180);
-}
-
-.student_list > li:last-child {
-  border-bottom: none;
-}
-
-.student_name:hover {
-  background: rgba(210,210,210,0.2);
-}
-
-.student_email {
-  display: block;
-  padding: 0.5em;
-  width: 19em;
-  color: rgb(109,85,12);
-}
-
-.back {
-  width: 8em;
-  height: 2em;
-  line-height: 2em;
-  padding: 0.3em;
-  background: rgb(45,96,240);
-  color: rgb(250,210,99);
+  color: rgb(50,50,50);
+  text-shadow: 1px 1px 3px rgb(191, 205, 255);
   font-size: 1.5em;
-  text-decoration: none;
+  transition: text-shadow 1s linear 0.5s;
+  -moz-transition: text-shadow 1s linear 0.5s;
+  -webkit-transition: text-shadow 1s linear 0.5s;
+  -o-transition: text-shadow 1s linear 0.5s;
 }
 
-/*.back:before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-top: 1em solid transparent;
-  border-bottom: 1em solid transparent;
+.student-list-name:hover {
+  text-shadow: 0px 0px 10px rgba(0,64,255,0.7);
+  background-color: rgba(255,255,255,0.3);
+}
+.student-list-email {
+  display: block;
+  margin-left: 1em;
+  text-shadow: 0px 0px 5px rgb(191,205,255);
+}
 
-  border-right: 1em solid rgb(45,96,240);
-  padding-left: 0.3em;
+/*.student-list-control {
+  display: block;
+  text-align: center;
+  margin: 0 auto 0;
 }*/
 
-#navigation button {
-  display: none;
+#student-list-new {
+  text-align: center;
+  width: 500px;
+  height: 50px;
+  display: block;
+  line-height: 50px;
+  margin: 0px auto 0px;
+
 }
 
+#student-list-new a {
+  display: block;
+  border: 2px solid rgb(66,191,104);
+  border-radius: 1em;
+  background-color: rgb(78,216,119);
+  box-shadow: 2px 2px 2px rgb(16,130,81);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  bottom: 2px;
+  right: 2px;
+}
+
+#student-list-new a:active {
+  box-shadow: none;
+  top: 2px;
+  left: 2px;
+  bottom: 0px;
+  right: 0px;
+}
+
+#student-list-new a:hover {
+  background-color: rgb(88,226,129);
+}
+
+#student-list-courses {
+  text-align: center;
+  width: 500px;
+  height: 50px;
+  display: block;
+  line-height: 50px;
+  margin: 0px auto 0px;
+}
+
+#student-list-courses a {
+  display: block;
+  border: 2px solid rgb(66,104,191);
+  border-radius: 1em;
+  background-color: rgb(78,119,216);
+  box-shadow: 2px 2px 2px rgb(16,81,130);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  bottom: 2px;
+  right: 2px;
+}
+
+#student-list-courses a:active {
+  box-shadow: none;
+  top: 2px;
+  left: 2px;
+  bottom: 0px;
+  right: 0px;
+}
+
+#student-list-courses a:hover {
+  background-color: rgb(88,129,226);
+}
