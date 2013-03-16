@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20130208020900) do
   end
 
   create_table "courses_students", :force => true do |t|
-    t.integer "student_id"
-    t.integer "course_id"
+    t.string "student_id", :limit => 36
+    t.string "course_id",  :limit => 36
   end
 
   create_table "students", :id => false, :force => true do |t|
