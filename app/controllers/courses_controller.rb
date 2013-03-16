@@ -16,6 +16,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find_by_uuid(params[:id])  
+    @students = @course.students
   end
 
   def new

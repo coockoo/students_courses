@@ -1,20 +1,25 @@
-<h1>Hello, <%= @student.name %>! </h1>
-<h3>Your courses:</h3>
+<div id="student-courses-container" class="container">
+  <h1 id="student-courses-title" class="header">Hello, <%= @student.name %>! </h1>
+  <h3>Your courses:</h3>
 
-<ol>
-  <% @student.courses.each do |course| %>
-    <li><a class ="course_name" href="/courses/<%= course.id %>"><%= course.title %></a></li>
-  <% end %>
-</ol>
+  <ul id="student-courses-list" class="list">
+    <% @courses.each do |course| %>
+    <li class="courses-list-item">
+      <%= link_to course.title, course_path(course), :class => "courses-list-title" %>
+      <span class="courses-list-descr"><%= course.descr %></span>
+    </li>
+    <% end %>
+  </ul>
 
-<%= form_for (@student) do |f| %>
-  <% @courses.each do |c|  %>
-    <div>
-      <a href="/courses/<%= c.id %>"><%= c.title %></a> <%= check_box "selected_courses", c.id %>
-    </div>
-  <% end %>
+  <div id="student-courses-edit" class="edit">
+    <%= link_to "Edit student", { :controller => "students", :action => "edit" } %>
+  </div>
 
-  <%= f.submit %>
-<% end %>
+  <div id="student-courses-delete" class="delete">
+    <%= link_to "Kill student", { :controller => "students", :action => "destroy" } %>
+  </div>
 
-<a href="/students">Back to students</a>
+  <div id="student-courses" class="back">
+    <%= link_to "Back to students", students_path %>
+  </div>
+</div>

@@ -1,8 +1,8 @@
-<div id="student-list-container">
+<div id="student-list-container" class="container">
 
-  <h1 id="student-list-header">Students list</h1>
+  <h1 id="student-list-header" class="header">Students list</h1>
 
-  <ul id="student-list">
+  <ul id="student-list" class="list">
     <% @students.each do |student| %>
     <li class="student-list-item">
       <%= link_to student.name, student_path(student), :class => "student-list-name" %>
@@ -16,12 +16,12 @@
     <button id="next" data-dir="next">Next</button>
   </div>
   -->
-  <div id="student-list-new">
+  <div id="student-list-new" class="new">
     <%= link_to "Create new student", { :controller => "students", :action => "new" } %>
   </div>
 
-  <div id="student-list-courses">
-    <%= link_to "To courses", courses_path, :class => "back" %>
+  <div id="student-list-courses" class="back">
+    <%= link_to "To courses", courses_path %>
   </div>
 
 </div>

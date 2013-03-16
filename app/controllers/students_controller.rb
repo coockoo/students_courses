@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 
-# /students GET
+  # /students GET
   def index
     @students = Student.all
   end
@@ -22,32 +22,37 @@ class StudentsController < ApplicationController
     unless @student = Student.find_by_uuid(params[:id])
       render text: "Page not found", status: 404
     end
-    @courses = Course.all - @student.courses
+    @courses = @student.courses
   end
 
   # /students/new GET
   def new
-    @student = Student.create(params[:student])
+    @student = Student.new(params[:student])
   end
 
   # /students/1/edit GET
   def edit
+    @student = Student.find_by_uuid(params[:id])
+    @courses = Course.all - @student.courses
   end
 
   # /students/1 PUT
   def update
-    @student = Student.find_by_uuid(params[:id])
+    student = Student.find_by_uuid(params[:id])
+    student.name = params[:student][:name]
+    student.email = params[:student][:email]
+
     selected = params[:selected_courses] 
     selected.each { |key, value|
       if value.to_i == 1
-        @student.courses << Course.find_by_uuid(key)
+        student.courses << Course.find_by_uuid(key)
       end
     }
     respond_to do |format|
-      if @student.save 
+      if student.save 
         format.html { redirect_to :action => "show" }
       else 
-        format.html { render text: "Trouble!" }
+        format.html { render text: "#{student.errors.first}" }
       end
     end
   end

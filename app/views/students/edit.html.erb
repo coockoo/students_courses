@@ -1,0 +1,19 @@
+<h1>Edit user parameter</h1>
+
+<p class="responce" display="none"></p>
+<%= form_for @student do |f| %>
+  <div>
+    <%= label_tag "Give name: " %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= label_tag "Give email: " %>
+    <%= f.text_field :email %>
+  </div>
+  <% @courses.each do |c| %>
+    <div>
+      <a href="/courses/<%= c.id %>"><%= c.title %></a> <%= check_box "selected_courses", c.id %>
+    </div>
+  <% end %>
+  <%= f.submit "Save" %>
+<% end %>

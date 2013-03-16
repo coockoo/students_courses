@@ -1,10 +1,26 @@
-<h1>Course: <%= @course.title %> </h1>
-<h3>Students:</h3>
+<div id="course-students-container" class="container">
 
-<ol class="student_list">
-  <% @course.students.each do |student| %>
-    <li><a class ="student_name" href="/students<%= student.id %>"><%= student.name %></a><span class="student_email"><%= student.email %></span></li>
-  <% end %>
-</ol>
+  <h1 id="course-students-header" class="header">Course: <%= @course.title %></h1>
+  <p id="course-students-descr" class="descr"> <%= @course.descr %></p>
 
-<a href="/courses">Back to courses</a>
+  <ul id="course-students" class="list">
+    <% @students.each do |student| %>
+    <li class="student-list-item">
+      <%= link_to student.name, student_path(student), :class => "student-list-name" %>
+      <span class="student-list-email"><%= student.email %></span>
+    </li>
+    <% end %>
+  </ul>
+
+  <!--<div id="student-list-new">
+    <%= link_to "Create new student", { :controller => "students", :action => "new" } %>
+  </div> -->
+  <div id="courses-students-add" class="add">
+    <%= link_to "Enroll new student", {:controller => "courses", :action => "edit" } %>
+  </div>
+
+  <div id="courses-students-courses" class="back">
+    <%= link_to "Back to courses", courses_path %>
+  </div>
+
+</div>

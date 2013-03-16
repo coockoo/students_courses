@@ -1,6 +1,6 @@
 * { margin: 0; padding: 0; }
 
-#student-list-container {
+.container {
   width: 600px;
   margin: 50px auto 50px;
   border: 2px solid rgb(200,200,200);
@@ -12,14 +12,20 @@
   padding-bottom: 1em;
 }
 
-#student-list-header {
+.header {
   text-align: center;
   color: rgb(255,255,255);
   text-shadow: 1px 1px 2px rgb(25,25,25);
 }
 
-#student-list {
-  margin: 50px 0px 0px;  
+.descr {
+ text-align: justify; 
+  font-size: 1.2em;
+ margin: 1em 40px;
+}
+
+.list {
+  margin: 0px;  
   width: 300px;
   position: relative;
 }
@@ -56,20 +62,19 @@
   margin: 0 auto 0;
 }*/
 
-#student-list-new {
+.new {
   text-align: center;
   width: 500px;
   height: 50px;
   display: block;
   line-height: 50px;
   margin: 1em auto 0.5em;
-
 }
 
-#student-list-new a {
+.new a {
   display: block;
   border: 2px solid rgb(66,191,104);
-  border-radius: 1em;
+  border-radius: 0.5em;
   background-color: rgb(78,216,119);
   box-shadow: 2px 2px 2px rgb(16,130,81);
   position: relative;
@@ -77,9 +82,13 @@
   left: 0px;
   bottom: 2px;
   right: 2px;
+  color: rgb(66,191,104);
+  text-shadow: 0px 0px 2px rgb(255,255,255);
+  font-size: 1.5em;
+
 }
 
-#student-list-new a:active {
+.new a:active {
   box-shadow: none;
   top: 2px;
   left: 2px;
@@ -87,11 +96,11 @@
   right: 0px;
 }
 
-#student-list-new a:hover {
+.new a:hover {
   background-color: rgb(88,226,129);
 }
 
-#student-list-courses {
+.back {
   text-align: center;
   width: 500px;
   height: 50px;
@@ -100,10 +109,12 @@
   margin: 0.5em auto 1em;
 }
 
-#student-list-courses a {
+//TODO: do the Back arrow 
+//    : change the font and color
+.back a {
   display: block;
   border: 2px solid rgb(66,104,191);
-  border-radius: 1em;
+  border-radius: 0.5em;
   background-color: rgb(78,119,216);
   box-shadow: 2px 2px 2px rgb(16,81,130);
   position: relative;
@@ -111,9 +122,13 @@
   left: 0px;
   bottom: 2px;
   right: 2px;
+  color: rgb(66,104,191);
+  text-shadow: 0px 0px 2px rgb(255,255,255);
+  font-size: 1.5em;
+
 }
 
-#student-list-courses a:active {
+.back a:active {
   box-shadow: none;
   top: 2px;
   left: 2px;
@@ -121,6 +136,117 @@
   right: 0px;
 }
 
-#student-list-courses a:hover {
+.back a:hover {
   background-color: rgb(88,129,226);
+}
+
+.add {
+  text-align: center;
+  width: 500px;
+  height: 50px;
+  display: block;
+  line-height: 50px;
+  margin: 0.5em auto 1em;
+}
+
+.add a {
+  display: block;
+  border: 2px solid rgb(102,51,153);
+  border-radius: 0.5em;
+  background-color: rgb(153,102,204);
+  box-shadow: 2px 2px 2px rgb(153,102,204);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  bottom: 2px;
+  right: 2px;
+  color: rgb(102,51,153);
+  text-shadow: 0px 0px 2px rgb(255,255,255);
+  font-size: 1.5em;
+}
+
+.add a:active {
+  box-shadow: none;
+  top: 2px;
+  left: 2px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.add a:hover {
+  background-color: rgb(173,122,224);
+}
+
+.edit {
+  text-align: center;
+  width: 500px;
+  height: 50px;
+  display: block;
+  line-height: 50px;
+  margin: 1em auto 0.5em;
+}
+
+.edit a {
+  display: block;
+  border: 2px solid rgb(153,153,51);
+  border-radius: 0.5em;
+  background-color: rgb(204,204,51);
+  box-shadow: 2px 2px 2px rgb(204,204,51);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  bottom: 2px;
+  right: 2px;
+  color: rgb(153,153,51);
+  text-shadow: 0px 0px 2px rgb(255,255,255);
+  font-size: 1.5em;
+}
+
+.edit a:active {
+  box-shadow: none;
+  top: 2px;
+  left: 2px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.edit a:hover {
+  background-color: rgb(224,224,71);
+}
+
+.delete {
+  text-align: center;
+  width: 500px;
+  height: 50px;
+  display: block;
+  line-height: 50px;
+  margin: 0.5em auto;
+}
+
+.delete a {
+  display: block;
+  border: 2px solid rgb(153,51,51);
+  border-radius: 0.5em;
+  background-color: rgb(204,51,51);
+  box-shadow: 2px 2px 1px rgb(204,51,51);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  bottom: 2px;
+  right: 2px;
+  color: rgb(153,51,51);
+  text-shadow: 0px 0px 2px rgb(255,255,255);
+  font-size: 1.5em;
+}
+
+.delete a:active {
+  box-shadow: none;
+  top: 2px;
+  left: 2px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.delete a:hover {
+  background-color: rgb(224,71,71);
 }

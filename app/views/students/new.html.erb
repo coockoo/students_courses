@@ -3,7 +3,9 @@
 <%= form_for (@student) do |f|%>
   <%= label_tag "Give name: " %>
   <%= f.text_field :name %>
+  </br>
   <%= label_tag "Give email: " %>
   <%= f.text_field :email %>
+  </br>
   <%= f.submit %>
 <% end %>
