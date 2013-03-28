@@ -14,40 +14,48 @@
     });
     return o;
   };
-  /*$('form').on('submit', function ( e ) {
-    e.preventDefault();
-    var newStudent = $(this).serializeObject();
-    console.log(newStudent);
-    $.ajax({
-      url: '/students',
-      type: 'POST',
-      data: newStudent,
-      success: function ( resp ) {
-        $('form').append('<p> Responce is:' + resp + ' </p>');
-      }
-    });
-  });
-  */
-  /*$('a').on('click', function ( e ) {
-    e.preventDefault();
-  });*/
-
-  function Paginator ( container, nav, itemsPerPage ) {
-      this.container = container;
-      this.nav = nav;
-
-      this.itemsPerPage = itemsPerPage;
-      this.items = this.container.find('a');
-      console.log(this.items[0]);
-      console.log(this.itemHeight);
-  }
-
-  var paginator = new Paginator ( $('div.student_list_container'), $('#navigation'), 5 );
-  $('#navigation button').show().on('click', function () {
-    
-  });
-
-
-
   
+  var regForm = $('#registration-form').hide();
+
+  $('#student-list-new a').on('click', function ( e ) {
+    if (regForm.children().length == 0) {
+      $.ajax({
+        url: '/students/new/',
+        type: 'GET'
+      }).done( function ( resp ) {
+        regForm.html(resp);
+        regForm.slideToggle();
+        $('#new_student').submit( function ( e ) {
+          e.preventDefault();
+          var newStudent = $(this).serializeObject();
+
+          $.ajax({
+            url: '/students',
+            type: 'POST',
+            data: newStudent
+          }).done( function ( responce ) {
+            console.log( responce );
+            $('#student-list').append( responce );
+            $('#new_student').find('input[type="text"]').val("");
+          });
+        }); 
+      });
+    } else {
+      regForm.slideToggle();
+    }
+
+    e.preventDefault();
+  });
+
+  $('#sign-in').on('click', function ( e ) {
+    $.ajax({
+      url: '/students/sign_up',
+      method: 'GET'
+    }).done( function ( resp ) {
+      console.log ( resp );
+      $('#user_nav').append(resp);
+    });
+    e.preventDefault();
+  });
+
 })(jQuery);
