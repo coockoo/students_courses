@@ -1,11 +1,21 @@
-<h1>Create new user</h1>
+<div id="new-student-container" class="container">
 
-<%= form_for (@student) do |f|%>
-  <%= label_tag "Give name: " %>
-  <%= f.text_field :name %>
-  </br>
-  <%= label_tag "Give email: " %>
-  <%= f.text_field :email %>
-  </br>
-  <%= f.submit %>
-<% end %>
+  <h1 id="new-student-header" class="header">Create new student</h1>
+  <% if !@student.errors.empty? %>
+    <% @student.errors.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
+
+  <%= form_for @student do |f|%>
+    <div class="fieldset">
+      <%= label_tag "Give name: " %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="fieldset">
+      <%= label_tag "Give email: " %>
+      <%= f.text_field :email %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>
