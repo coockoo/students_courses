@@ -6,9 +6,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="user_nav">
+    <div id="logo">
+      <%= link_to "My page", student_path(current_student) %>
+      <%= link_to "All students", students_path %>
+      <%= link_to "All courses", courses_path%>
+    </div>
+    <% if student_signed_in? %>
+      <p>Signed in as <%= current_student.email %>. Not you?
+      <%= link_to "Sign out", destroy_student_session_path, :method => :delete %></p>
+    <% else %>
+      <p><%= link_to "Sign up", new_student_registration_path, :id => "sign-up" %> or <%= link_to "sign in", new_student_session_path, :id => "sign-in" %>
+    <% end %>
+  </div>
 
-<%= yield %>
+  <%= yield %>
 
-<%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

@@ -1,0 +1,4 @@
+<li class="student-list-item">
+  <%= link_to @student.name, student_path(@student), :class => "student-list-name" %>
+  <span class="student-list-email"><%= @student.email %></span>
+</li>
